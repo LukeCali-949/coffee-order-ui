@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Order System</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3e5ab;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      .order-status {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-weight: bold;
+        font-size: 30px;
+        margin: 15px;
+      }
+
+      .coffe-order {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: #cf740c;
+        font-weight: bold;
+        font-size: 20px;
+        margin: 15px;
+      }
+
+      .start-button {
+        background-color: #c2a661;
+        border: none;
+        padding: 50px 60px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .start-button:hover {
+        background-color: #b4955d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coffe-order">Coffee Order System</div>
+    <div class="order-status">Order Status</div>
+
+    <div class="container">
+      <a href="selectBeverage.html" class="start-button"
+        >Start your order here</a
+      >
+    </div>
+  </body>
+</html>

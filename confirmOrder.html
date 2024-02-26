@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmation - Coffee Order System</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3e5ab;
+      }
+
+      .order-status,
+      .coffee-order {
+        position: absolute;
+
+        margin: 15px;
+      }
+
+      .order-status {
+        right: 10px;
+        top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .coffee-order {
+        left: 10px;
+        top: 10px;
+        color: #cf740c;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .confirmation {
+        text-align: left;
+        color: black;
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .confirmation div {
+        margin: 20px 0;
+      }
+
+      .order-placed {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coffee-order">Coffee Order System</div>
+    <div class="order-status">Order Status</div>
+
+    <div class="confirmation">
+      <h1 class="order-placed">Order Placed:</h1>
+      <div>Order id: <span id="order-id"></span></div>
+      <div><span id="order-details"></span></div>
+      <div>Total: <span id="order-total"></span></div>
+    </div>
+
+    <script>
+      function getOrderDetails() {
+        const beverage =
+          sessionStorage.getItem("selectedBeverage") || "No Beverage Selected";
+        let condiments = sessionStorage.getItem("selectedCondiments");
+        condiments = condiments ? `${condiments}` : "";
+        return `${beverage} with: ${condiments}`;
+      }
+
+      function setConfirmationDetails() {
+        document.getElementById("order-id").textContent = "24";
+        document.getElementById("order-details").textContent =
+          getOrderDetails();
+        document.getElementById("order-total").textContent = "$4.5";
+      }
+
+      setConfirmationDetails();
+    </script>
+  </body>
+</html>

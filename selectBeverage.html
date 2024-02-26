@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Order System</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3e5ab;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .order-status,
+      .coffee-order {
+        position: absolute;
+        font-weight: bold;
+        margin: 15px;
+      }
+
+      .order-status {
+        right: 10px;
+        top: 10px;
+        font-size: 30px;
+      }
+
+      .coffee-order {
+        left: 10px;
+        top: 10px;
+        color: #cf740c;
+        font-size: 20px;
+      }
+
+      .beverage-title {
+        font-size: 24px;
+        margin: 30px 0;
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .beverage-options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .beverage-button {
+        background-color: #c2a661;
+        border: none;
+        padding: 20px 60px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 150px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        margin: 50px;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .beverage-button:hover {
+        background-color: #b4955d;
+      }
+
+      .bev-group-1 {
+        margin-right: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coffee-order">Coffee Order System</div>
+    <div class="order-status">Order Status</div>
+
+    <div class="container">
+      <div class="beverage-title">Select the beverage</div>
+      <div class="beverage-options">
+        <div class="bev-group-1">
+          <div onclick="selectBeverage('Dark Roast')" class="beverage-button">
+            Dark Roast
+          </div>
+          <div onclick="selectBeverage('Espresso')" class="beverage-button">
+            Espresso
+          </div>
+        </div>
+        <div class="bev-group-2">
+          <div onclick="selectBeverage('House Blend')" class="beverage-button">
+            House Blend
+          </div>
+          <div onclick="selectBeverage('Decaf')" class="beverage-button">
+            Decaf
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function selectBeverage(beverageName) {
+        sessionStorage.setItem("selectedBeverage", beverageName);
+        window.location.href = "addCondiment.html";
+      }
+    </script>
+  </body>
+</html>
