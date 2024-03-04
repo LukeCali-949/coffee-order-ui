@@ -17,13 +17,6 @@
         background-color: #f3e5ab;
       }
 
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
       .order-status,
       .coffee-order {
         position: absolute;
@@ -94,22 +87,26 @@
     <div class="order-status">Order Status</div>
 
     <div class="container">
-      <div class="beverage-title">Select the beverage</div>
-      <div class="beverage-options">
-        <div class="bev-group-1">
-          <div onclick="selectBeverage('Dark Roast')" class="beverage-button">
-            Dark Roast
-          </div>
-          <div onclick="selectBeverage('Espresso')" class="beverage-button">
-            Espresso
-          </div>
-        </div>
-        <div class="bev-group-2">
-          <div onclick="selectBeverage('House Blend')" class="beverage-button">
-            House Blend
-          </div>
-          <div onclick="selectBeverage('Decaf')" class="beverage-button">
-            Decaf
+      <div class="grouping-1">
+        <div class="grouping-2">
+          <div class="beverage-title">Select the beverage</div>
+          <div class="beverage-options">
+            <div class="bev-group-1">
+              <div onclick="selectBeverage('Dark Roast')" class="beverage-button">
+                Dark Roast
+              </div>
+              <div onclick="selectBeverage('Espresso')" class="beverage-button">
+                Espresso
+              </div>
+            </div>
+            <div class="bev-group-2">
+              <div onclick="selectBeverage('House Blend')" class="beverage-button">
+                House Blend
+              </div>
+              <div onclick="selectBeverage('Decaf')" class="beverage-button">
+                Decaf
+              </div>
+            </div>
           </div>
         </div>
       </div>

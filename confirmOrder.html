@@ -20,7 +20,6 @@
       .order-status,
       .coffee-order {
         position: absolute;
-
         margin: 15px;
       }
 
@@ -68,21 +67,42 @@
 
     <script>
       function getOrderDetails() {
-        const beverage =
-          sessionStorage.getItem("selectedBeverage") || "No Beverage Selected";
-        let condiments = sessionStorage.getItem("selectedCondiments");
-        condiments = condiments ? `${condiments}` : "";
+        const beverage = sessionStorage.getItem("selectedBeverage") || "No Beverage Selected";
+        let condiments = sessionStorage.getItem("selectedCondiments") || "";
         return `${beverage} with: ${condiments}`;
       }
-
-      function setConfirmationDetails() {
-        document.getElementById("order-id").textContent = "24";
-        document.getElementById("order-details").textContent =
-          getOrderDetails();
-        document.getElementById("order-total").textContent = "$4.5";
+  
+      function setConfirmationDetails(orderData) {
+        document.getElementById("order-id").textContent = orderData.id;
+        document.getElementById("order-details").textContent = orderData.description;
+        document.getElementById("order-total").textContent = "$" + orderData.cost.toFixed(2);
       }
+  
+      function fetchOrderDetails() {
+      const beverage = sessionStorage.getItem("selectedBeverage");
+      const condimentsString = sessionStorage.getItem("selectedCondiments");
+      const condiments = condimentsString ? condimentsString.split(',') : [];
 
-      setConfirmationDetails();
+      const orderData = {
+        beverage: beverage,
+        condiments: condiments
+      };
+
+      fetch('http://localhost:8080/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        setConfirmationDetails(data);
+      })
+      .catch(error => console.error('Error:', error));
+    }
+  
+      fetchOrderDetails();
     </script>
   </body>
 </html>

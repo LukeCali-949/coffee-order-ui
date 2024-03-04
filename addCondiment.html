@@ -166,21 +166,17 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="order-section">
-          <h1 class="order-title">My Order</h1>
-          <div class="my-order" id="my-order">
-            <div
-              id="selected-beverage"
-              class="my-order-button"
-              onclick="goBackToSelectBeverage()"
-            >
-              Selected Beverage
-            </div>
-
-            <div class="confirm-order my-order-button" onclick="confirmOrder()">
-              Confirm Order
-            </div>
+      <div class="order-section">
+        <h1 class="order-title">My Order</h1>
+        <div class="my-order" id="my-order">
+          <div
+            id="selected-beverage"
+            class="my-order-button"
+            onclick="goBackToSelectBeverage()"
+          >
+            Selected Beverage
           </div>
         </div>
       </div>
@@ -191,7 +187,6 @@
 
       function addCondiment(condiment) {
         selectedCondiments.push(condiment);
-
         updateMyOrder();
       }
 
@@ -205,9 +200,6 @@
           const condimentDiv = document.createElement("div");
           condimentDiv.textContent = condiment;
           condimentDiv.className = "my-order-button";
-          condimentDiv.onclick = function () {
-            addCondiment(condiment);
-          };
           myOrderDiv.appendChild(condimentDiv);
         });
 
@@ -225,33 +217,9 @@
       function confirmOrder() {
         const condimentsArray = Array.from(selectedCondiments);
         const condimentsString = condimentsArray.join(", ");
-
         sessionStorage.setItem("selectedCondiments", condimentsString);
-
         window.location.href = "confirmOrder.html";
       }
-
-      function setSelectedBeverage() {
-        const beverage = sessionStorage.getItem("selectedBeverage");
-        const condiments = sessionStorage.getItem("selectedCondiments");
-        const selectedBeverageDiv =
-          document.getElementById("selected-beverage");
-
-        if (beverage) {
-          selectedBeverageDiv.textContent = beverage;
-        } else {
-          selectedBeverageDiv.textContent = "No Beverage Selected";
-        }
-
-        if (condiments) {
-          condiments.split(", ").forEach((condiment) => {
-            selectedCondiments.add(condiment);
-          });
-          updateMyOrder();
-        }
-      }
-
-      setSelectedBeverage();
     </script>
   </body>
 </html>
